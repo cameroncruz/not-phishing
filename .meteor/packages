@@ -8,3 +8,5 @@ meteor-platform
 autopublish
 insecure
 matthew:foundation5-sass
+iron:router
+momentjs:moment
