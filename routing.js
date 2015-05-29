@@ -6,5 +6,5 @@ AppController = RouteController.extend({
 Router.route('/', {
   name: 'home',
   template: 'home',
-  controller: 'MyController'
+  controller: 'AppController'
 });

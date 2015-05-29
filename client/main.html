@@ -6,4 +6,43 @@
 
 <template name="home">
   <!-- Insert templates here -->
+
+  {{> passwordInputs}}
+</template>
+
+<template name="passwordInputs">
+  <div class="row">
+    <div class="small-12 columns">
+      <h4>Add all the passwords you use.  <strong>If you have more passwords, the security of your digital portfolio is stronger.</strong></h4>
+    </div>
+  </div>
+  <div class="row panel">
+  <div class="small-12 columns">
+  <div class="row">
+    <div class="small-12 columns">
+      {{> passwordAdded}}
+    </div>
+  </div>
+  <div class="row">
+    <div class="small-10 columns">
+      <input id="input-password" type="password" placeholder="Enter password">
+    </div>
+    <div class="small-2 columns">
+      <a href="" class="button success radius expand">Add</a>
+    </div>
+  </div>
+  </div>
+  </div>
+</template>
+
+<template name="passwordAdded">
+  <div class="row">
+        <div class="small-2 columns">
+          <p><strong>Password 1</strong></p>
+        </div>
+        <div class="small-4 columns">
+          <p>&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;</p>
+        </div>
+        <div class="small-3 small-offset-3 columns"><p>6 characters &nbsp;<span class="label alert">Weak</span></p></div>
+      </div>
 </template>

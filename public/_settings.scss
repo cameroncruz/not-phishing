@@ -145,8 +145,8 @@ $modules: () !default;
 // $font-weight-bold: bold !default
 
 // We use these to control various global styles
-// $body-bg: #fff;
-// $body-font-color: #222;
+ $body-bg: #3F51B5;
+ $body-font-color: #FFFFFF;
 // $body-font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
 // $body-font-weight: $font-weight-normal;
 // $body-font-style: normal;
@@ -227,7 +227,7 @@ $modules: () !default;
 // $header-font-family: $body-font-family;
 // $header-font-weight: $font-weight-normal;
 // $header-font-style: normal;
-// $header-font-color: #222;
+ $header-font-color: #FFFFFF;
 // $header-line-height: 1.4;
 // $header-top-margin: .2rem;
 // $header-bottom-margin: .5rem;
@@ -918,7 +918,7 @@ $modules: () !default;
 // $include-html-panel-classes: $include-html-classes;
 
 // We use these to control the background and border styles
-// $panel-bg: scale-color(#fff, $lightness: -5%);
+ $panel-bg: #FFFFFF;
 // $panel-border-style: solid;
 // $panel-border-size: 1px;
 
