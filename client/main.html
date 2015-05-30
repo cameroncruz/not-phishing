@@ -6,7 +6,7 @@
 
 <template name="home">
   <!-- Insert templates here -->
-
+  {{> title}}
   {{> passwordInputs}}
 </template>
 
@@ -45,4 +45,34 @@
         </div>
         <div class="small-3 small-offset-3 columns"><p>6 characters &nbsp;<span class="label alert">Weak</span></p></div>
       </div>
+</template>
+
+<template name="survey">
+	<div class="row">
+		<div class="large-12 columns">
+			<p>texrstrsstt</p>
+		</div>	
+	</div>
+	<div class="row">
+ 	 <div class="small-10 medium-11 columns">
+ 	   <div class="range-slider" data-slider id="slider" data-options="step: 50; display_selector: #sliderOutput3;">
+   		   <span class="range-slider-handle" role="slider" tabindex="0"></span>
+    	  <span class="range-slider-active-segment"></span>
+    	</div>
+  	</div>
+ 	 	<div class="small-2 medium-1 columns">
+   	 		<div>{{getValue}}</div>
+  		</div>
+	</div>
+</template>
+
+<template name="surveyBs">
+	<h4>airsetn</h4>
+</template>
+
+<template name="title">
+	<br>
+	<h1>What are my chances of getting hacked?</h1>
+	<h2>Aproximately 73% of U.S. Web surfers have fallen victim to cyber-crimes. Will you be one of them?</h2>
+	<br>
 </template>
