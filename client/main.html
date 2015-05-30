@@ -8,71 +8,14 @@
   <!-- Insert templates here -->
   {{> title}}
   {{> passwordInputs}}
+
 </template>
 
-<template name="passwordInputs">
-  <div class="row">
-    <div class="small-12 columns">
-      <h4>Add all the passwords you use.  <strong>If you have more passwords, the security of your digital portfolio is stronger.</strong></h4>
-    </div>
-  </div>
-  <div class="row panel">
-  <div class="small-12 columns">
-  <div class="row">
-    <div class="small-12 columns">
-      {{> passwordAdded}}
-    </div>
-  </div>
-  <div class="row">
-    <div class="small-10 columns">
-      <input id="input-password" type="password" placeholder="Enter password">
-    </div>
-    <div class="small-2 columns">
-      <a href="" class="button success radius expand">Add</a>
-    </div>
-  </div>
-  </div>
-  </div>
-</template>
-
-<template name="passwordAdded">
-  <div class="row">
-        <div class="small-2 columns">
-          <p><strong>Password 1</strong></p>
-        </div>
-        <div class="small-4 columns">
-          <p>&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;</p>
-        </div>
-        <div class="small-3 small-offset-3 columns"><p>6 characters &nbsp;<span class="label alert">Weak</span></p></div>
-      </div>
-</template>
-
-<template name="survey">
-	<div class="row">
-		<div class="large-12 columns">
-			<p>texrstrsstt</p>
-		</div>	
-	</div>
-	<div class="row">
- 	 <div class="small-10 medium-11 columns">
- 	   <div class="range-slider" data-slider id="slider" data-options="step: 50; display_selector: #sliderOutput3;">
-   		   <span class="range-slider-handle" role="slider" tabindex="0"></span>
-    	  <span class="range-slider-active-segment"></span>
-    	</div>
-  	</div>
- 	 	<div class="small-2 medium-1 columns">
-   	 		<div>{{getValue}}</div>
-  		</div>
-	</div>
-</template>
-
-<template name="surveyBs">
-	<h4>airsetn</h4>
-</template>
 
 <template name="title">
 	<br>
 	<h1>What are my chances of getting hacked?</h1>
 	<h2>Aproximately 73% of U.S. Web surfers have fallen victim to cyber-crimes. Will you be one of them?</h2>
 	<br>
+
 </template>
