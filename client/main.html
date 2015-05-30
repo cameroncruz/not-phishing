@@ -1,10 +1,4 @@
 <template name="layout">
-  <div class="row panel"><div class="small-12 columns"> 
-  <h1>Test FB Like</h1>
-  {{> facebookLike}}
-  </div></div>
-
-
   {{> yield}}
   
   {{initFoundation}}
@@ -23,6 +17,13 @@
 <template name="home">
   <!-- Insert templates here -->
   {{> title}}
+
+  <div class="row">
+    <div class="small-2 small-centered columns"> 
+      {{> facebookLike}}
+    </div>
+  </div>
+
   {{> survey}}
   {{> passwordInputs}}
   {{> calculateButton}}
@@ -30,12 +31,24 @@
 
 
 <template name="loading">
-  
+
+  {{> fruitQuote}}
 </template>
 
 
 <template name="results">
-  
+  <br>
+  <div class="row">
+    <div class="small-12 columns">
+      <div class="row">
+        <div class="small-4 small-centered columns alert-box alert text-center">
+          <h2>You have a</h2>
+          <h1 id="percent-chance">100%</h1>
+          <h2>chance of being hacked.</h2>
+        </div>
+      </div>
+    </div>
+  </div>
 </template>
 
 <template name="facebookLike">
@@ -46,8 +59,10 @@
 
 <template name="title">
 	<br>
+  <div class="row"><div class="small-12 columns text-center">
 	<h1>What are my chances of getting hacked?</h1>
 	<h2>Aproximately 73% of U.S. Web surfers have fallen victim to cyber-crimes. Will you be one of them?</h2>
+  </div></div>
 	<br>
 	<br>
 	<br>

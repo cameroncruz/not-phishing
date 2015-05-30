@@ -2,7 +2,6 @@
 @import ".meteor/local/build/programs/server/assets/packages/matthew_foundation5-sass/foundation";
 
 h1{
-	text-align: center;
 	font-size: 400%;
 	font-weight: 100;
 	margin-left: 5%;
@@ -11,7 +10,6 @@ h1{
 
 h2{
 	font-weight: 100;
-	text-align: center;
 	margin-left: 5%;
 	margin-right: 5%;
 }
@@ -21,4 +19,9 @@ h2{
 	font-weight: 200;
 	color: #000;
 
+}
+
+#percent-chance {
+	font-size: rem-calc(80);
+	font-weight: 200;
 }

@@ -8,3 +8,15 @@ Router.route('/', {
   template: 'home',
   controller: 'AppController'
 });
+
+Router.route('/calculating', {
+  name: 'calculating',
+  template: 'loading',
+  controller: 'AppController'
+});
+
+Router.route('/results', {
+  name: 'results',
+  template: 'results',
+  controller: 'AppController'
+});

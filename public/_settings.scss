@@ -364,8 +364,8 @@ $modules: () !default;
 // We use these to control text style.
 // $alert-font-weight: $font-weight-normal;
 // $alert-font-size: rem-calc(13);
-// $alert-font-color: #fff;
-// $alert-font-color-alt: scale-color($secondary-color, $lightness: -66%);
+ $alert-font-color: #fff;
+ $alert-font-color-alt: $alert-font-color;
 
 // We use this for close hover effect.
 // $alert-function-factor: -14%;
