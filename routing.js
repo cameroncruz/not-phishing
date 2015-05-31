@@ -20,3 +20,8 @@ Router.route('/results', {
   template: 'results',
   controller: 'AppController'
 });
+
+Router.route('/arstoien', {
+  name: 'arstoien',
+  template: 'arstoien'
+});
