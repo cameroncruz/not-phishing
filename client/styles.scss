@@ -4,25 +4,35 @@
 
 h1{
 	font-size: 400%;
-	font-weight: 100;
 	margin-left: 5%;
 	margin-right: 5%;
 }
 
 h2{
-	font-weight: 100;
+	font-weight: 300;
 	margin-left: 5%;
 	margin-right: 5%;
 }
 
 .surveyq{
-	font-size: 150%;
 	font-weight: 300;
+	font-size: 150%;
 	color: #000;
 
 }
 
 big {
 	font-size: rem-calc(80);
-	font-weight: 400;
+}
+
+#footer {
+	background-color: #424242;
+}
+
+#landing {
+	background-image: url('images/city36.png');
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-position: bottom;
+	background-size: cover;
 }

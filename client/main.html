@@ -6,7 +6,8 @@
 
 <template name="layout">
   {{> yield}}
-  
+  <br>
+  {{> footer}}
   {{initFoundation}}
 
   <div id="fb-root"></div>
@@ -22,15 +23,23 @@
 
 <template name="home">
   <!-- Insert templates here -->
+  <div id="landing">
   {{> title}}
   <br>
 
   <div class="row">
-    <div class="small-2 small-centered columns"> 
+    <div class="small-4 small-offset-3 columns"><img src="images/proofpointlogo.png" style="width: 300px;"></div>
+    <div class="small-2 end columns"> 
       {{> facebookLike}}
     </div>
   </div>
   <br>
+  <br>
+  </div>
+  <br>
+  <div class="row">
+    <div class="small-2 small-centered columns"><img src="images/unlock-icon.png" style="width: 100px;"></div>
+  </div>
   <br>
   <div class="row">
     <div class="small-12 columns text-center">
@@ -98,9 +107,47 @@
 
 <template name="title">
 	<br>
+      <br>
+      <br>
+      <br>
+      <br>
   <div class="row"><div class="small-12 columns text-center">
 	<h1>What are my chances of getting hacked?</h1>
-	<h2>Aproximately 73% of U.S. Web surfers have fallen victim to cyber-crimes. Will you be one of them?</h2>
+	<h2>Approximately 73% of U.S. Web surfers have fallen victim to cyber-crimes. Will you be one of them?</h2>
   </div></div>
 
+</template>
+
+<template name="footer">
+  <div id="footer">
+  <br>
+  <br>
+    <div class="row">
+      <div class="small-12 columns">
+        <div class="row">
+          <div class="small-4 columns">
+            <div class="row">
+              <div class="small-6 columns">
+                <a href="https://lastpass.com"><img src="https://lh6.ggpht.com/baD4XkhDV6F6qzrCQhY-UES1IDlEUaqTwhfL7xC7PQQJb3XeYhMbvKRDgpn6fyo5vA=w300" style="width: 126px;"></a>
+              </div>
+              <div class="small-6 columns">
+                <p><a href="https://lastpass.com" style="color: #D42F28;">LastPass</a> remembers your passwords so that you can focus on the more important things in life.</p>
+              </div>
+            </div>
+          </div>
+          <div class="small-4 columns">
+            <br>
+            <p class="text-center">proofpoint™ Security Calculator</p>
+            <br>
+            <p class="text-center"><a href="https://www.proofpoint.com" class="">Advanced Security Solutions</a></p>
+            <p class="text-center">© 2015 PROOFPOINT, INC.</p>
+          </div>
+          <div class="small-4 columns">
+            <p class="text-right">This site is strictly for educational use. Due to limitations of the technology involved, its results cannot always be accurate. Your password will not be transferred over the internet.</p>
+          </div>
+        </div>
+        <br>
+      </div>
+    </div>
+  </div>
 </template>
