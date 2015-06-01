@@ -23,5 +23,7 @@ Template.results.helpers({
 Template.results.events({
   'click #button-return': function () {
     Session.set('passwordCache', []);
+    Router.go("home");
+    location.reload(true);
   }
 });
