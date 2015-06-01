@@ -1,3 +1,4 @@
+@import url(http://fonts.googleapis.com/css?family=Lato:100,300,400);
 @import "public/_settings.scss";
 @import ".meteor/local/build/programs/server/assets/packages/matthew_foundation5-sass/foundation";
 
@@ -16,12 +17,12 @@ h2{
 
 .surveyq{
 	font-size: 150%;
-	font-weight: 200;
+	font-weight: 300;
 	color: #000;
 
 }
 
 big {
 	font-size: rem-calc(80);
-	font-weight: 200;
+	font-weight: 400;
 }

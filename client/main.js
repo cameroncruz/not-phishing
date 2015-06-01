@@ -19,3 +19,9 @@ Template.results.helpers({
     return Session.get('stats');
   }
 });
+
+Template.results.events({
+  'click #button-return': function () {
+    Session.set('passwordCache', []);
+  }
+});
