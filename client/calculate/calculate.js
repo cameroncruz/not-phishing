@@ -50,7 +50,18 @@ function calculateHackingChance () {
   var scoreQuotient = Math.round(userScore/optimalScore*100);
 
   //Add code here for answering survey questions, safest responses add points to scoreQuotient
-  //...
+  var filesharing = document.getElementById('survey-filesharing').value;
+  var friends = document.getElementById('survey-friends').value;
+  var antivirus = document.getElementById('survey-antivirus').value;
+  var encryption = document.getElementById('survey-encryption').value;
+
+  var surveyAnswers = [filesharing, friends, antivirus, encryption];
+
+  for (i = 0; i < surveyAnswers.length; i++) {
+    if (surveyAnswers[i] === "secure") {
+      scoreQuotient = scoreQuotient+1;
+    }
+  }
 
   var percentChance = 100-scoreQuotient;
 
