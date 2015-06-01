@@ -1,6 +1,7 @@
 Template.calculateButton.events({
   'click #calculate-button': function (event) {
     storePasswords();
+    calculateHackingChance();
 
     Router.go('calculating');
     setTimeout(function () {
@@ -33,5 +34,59 @@ function storePasswords () {
 }
 
 function calculateHackingChance () {
-  
+  var userScore = 1;
+  var optimalScore = 9.41*Math.pow(10, 26);
+  var possibleCharacters = 36; //Change based on survey question, ask user if passwords contain capitalization and or symbols (base 36, caps add 26, symbols add 34)
+  var passwordCache = Session.get('passwordCache');
+  var numberOfPasswords = passwordCache.length;
+  var passwordScore = 0;
+  for (var i = 0; i < numberOfPasswords; i++) {
+    passwordScore = passwordScore+Math.pow(possibleCharacters, passwordCache[i].length);
+  }
+  userScore = userScore*passwordScore*numberOfPasswords;
+  if (userScore > optimalScore) {
+    userScore = optimalScore;
+  }
+  var scoreQuotient = Math.round(userScore/optimalScore*100);
+
+  //Add code here for answering survey questions, safest responses add points to scoreQuotient
+  //...
+
+  var percentChance = 100-scoreQuotient;
+
+  //Throttling the result to adjust for the large numbers issue
+  var throttle = 0.73*numberOfPasswords;
+  for (i = 0; i < numberOfPasswords; i++) {
+    throttle = throttle*passwordCache[i].length;
+  }
+  if (throttle > 84) {
+    throttle = 84;
+  }
+  throttledPercentChance = percentChance - throttle;
+  if (throttledPercentChance < 1) {
+    throttledPercentChance = 1;
+  }
+  Session.set('percentChanceNumber', throttledPercentChance);
+
+  //Create string from percentage and truncate
+  var truncatedPercentChance = throttledPercentChance.toString();
+  if (truncatedPercentChance.length > 5) {
+    truncatedPercentChance = truncatedPercentChance.slice(0,5);
+  }
+  Session.set('percentChanceString', truncatedPercentChance);
+
+  //Calculate stats for results page
+  //
+  var averagePasswordLength = 0;
+  for (i = 0; i < numberOfPasswords; i++) {
+   averagePasswordLength = averagePasswordLength+passwordCache[i].length; 
+  }
+  averagePasswordLength = Math.round(averagePasswordLength/numberOfPasswords);
+
+  var stats = {
+    'numberOfPasswords': numberOfPasswords,
+    'averagePasswordLength': averagePasswordLength
+  };
+
+  Session.set('stats', stats);
 }

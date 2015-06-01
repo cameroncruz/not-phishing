@@ -41,9 +41,9 @@
   <div class="row">
     <div class="small-12 columns">
       <div class="row">
-        <div class="small-4 small-centered columns alert-box alert text-center">
+        <div class="small-4 small-centered columns alert-box {{resultColor}} text-center">
           <h2>You have a</h2>
-          <h1 id="percent-chance">100%</h1>
+          <h1 id="percent-chance"><big>{{percentChance}}%</big></h1>
           <h2>chance of being hacked.</h2>
         </div>
       </div>
@@ -54,9 +54,19 @@
     <div class="small-12 columns">
       <div class="row">
         <div class="small-12 columns text-center">
-          <h1>Analysis</h1>
+          <h1>Conclusion</h1>
         </div>
       </div>
+      {{#with stats}}
+        <div class="row">
+          <div class="small-4 small-offset-2 columns">
+            <p><big>{{numberOfPasswords}}</big> total passwords</p>
+          </div>
+          <div class="small-6 columns">
+            <p>Average password length of {{averagePasswordLength}} characters<big style="opacity: 0;">0</big></p>
+          </div>
+        </div>
+      {{/with}}
     </div>
   </div>
 </template>
