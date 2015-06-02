@@ -77,27 +77,49 @@
   <div class="row">
     <div class="small-12 columns">
       <div class="row">
-        <div class="small-4 small-centered columns alert-box {{resultColor}} text-center">
+        <div class="small-4 columns">
+          <a href="http://home.mcafee.com/"><img src="images/mcafee.png" alt="" class="left ad"></a>
+        </div>
+        <div id="result-box" class="small-4 columns alert-box {{resultColor}} text-center">
           <h2>You have a</h2>
           <h1 id="percent-chance"><big>{{percentChance}}%</big></h1>
           <h2>chance of being hacked.</h2>
+        </div>
+        <div class="small-4 columns">
+          <a href="http://www.squarespace.com/"><img src="images/squarespace-ad.jpeg" alt="" class="right ad"></a>
         </div>
       </div>
     </div>
   </div>
   <br>
   <div class="row">
-    <div id="button-return" class="small-12 columns"><a href="/" class="button success expand round">Return to What Are My Chances of Getting Hacked</a></div>
+    <div id="button-return" class="small-12 columns"><a href="/" class="button success expand round">Return to proofpoint™ Security Calculator</a></div>
   </div>
   <br>
   <div class="row panel">
     <div class="small-12 columns">
+      <br>
       <div class="row">
         <div class="small-12 columns text-center">
           <h1>Conclusion</h1>
         </div>
       </div>
+      <br>
       {{#with stats}}
+        <div class="row">
+          <div class="small-8 small-centered text-center columns">
+            <h4>{{conclusion}}</h4>
+            <br>
+            <p>If your chance of being hacked is less than 50%, you are secure.  It would take attackers excessive computing power to breach your digital portfolio.  People with a chance that is over 50% are more likely to be identified and targeted by cyber-criminals.</p>
+          </div>
+        </div>
+        <br>
+        <div class="row">
+          <div class="small-8 small-centered columns">
+            <hr>
+          </div>
+        </div>
+        <br>
         <div class="row">
           <div class="small-4 small-offset-2 columns">
             <p><big>{{numberOfPasswords}}</big> total passwords</p>
@@ -105,6 +127,7 @@
           <div class="small-6 columns">
             <p>Average password length of {{averagePasswordLength}} characters<big style="opacity: 0;">0</big></p>
           </div>
+          <div class="small-10 small-centered text-center columns"><p>Only the password length and type of characters used was recorded for the calculation. Your actual passwords are never transferred over the Internet.</p></div>
         </div>
       {{/with}}
     </div>

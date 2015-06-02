@@ -66,7 +66,7 @@ function calculateHackingChance () {
   var percentChance = 100-scoreQuotient;
 
   //Throttling the result to adjust for the large numbers issue
-  var throttle = 1.5*numberOfPasswords;
+  var throttle = 1.9*numberOfPasswords;
   for (i = 0; i < numberOfPasswords; i++) {
     throttle = throttle*passwordCache[i].length;
   }
@@ -94,9 +94,32 @@ function calculateHackingChance () {
   }
   averagePasswordLength = Math.round(averagePasswordLength/numberOfPasswords);
 
+  console.log(throttledPercentChance);
+  function level (value) {
+    if (value > 69) {
+      return "alert";
+    } else if (value < 45) {
+      return "success";
+    } else {
+      return "warning";
+    }
+  }
+
+  function conclusion (value) {
+      if (value > 69) {
+        return "Unfortunately, your digital portfolio is easily hacked.  If specifically targeted by an attacker, your accounts could easily become compromised.";
+      } else if (value < 45) {
+        return "Congratulations, you are part of the secure 27% of U.S. web surfers! Your accounts are unlikely to be compromised.";
+      } else {
+        return "Your security could use some improvements.  Your accounts are not easily compromised, but determined hackers could potentially infiltrate your digital portfolio.";
+      }
+    }
+
   var stats = {
     'numberOfPasswords': numberOfPasswords,
-    'averagePasswordLength': averagePasswordLength
+    'averagePasswordLength': averagePasswordLength,
+    'level': level(throttledPercentChance),
+    'conclusion': conclusion(throttledPercentChance)
   };
 
   Session.set('stats', stats);
