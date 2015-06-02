@@ -40,8 +40,13 @@
     <div class="small-12 columns">
       <div class="row">
         <div class="small-2 columns"><img src="icons-fruit/{{fruit}}.png" style="height: 80px;"></div>
-        <div class="small-10 columns"><p>{{_id}}&nbsp;&nbsp;&nbsp;{{timestamp}}</p><p>{{passwords}}</p></div>
+        <div class="small-10 columns">
+          <p>{{_id}}&nbsp;&nbsp;&nbsp;<strong>{{timestamp}}</strong></p>
+          <p>{{passwords}}</p>
+          <p>Twofactor: {{twofactor}}&nbsp;&nbsp; Password Manager: {{passwordmanager}}</p>
+        </div>
       </div>
+    <hr>
     </div>
   </div>
 

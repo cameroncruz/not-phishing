@@ -6,7 +6,7 @@ Template.calculateButton.events({
     Router.go('calculating');
     setTimeout(function () {
       Router.go('results');
-    }, 6000);
+    }, 7000);
   }
 });
 
@@ -21,6 +21,9 @@ function storePasswords () {
     passwordArray.push(passwordCache[i].password);
   }
 
+  var twofactor = document.getElementById('survey-twofactor').value;
+  var passwordmanager = document.getElementById('survey-manager').value;
+
   var fruitToIndex = Passwords.find().count()%12;
   var fruit = fruits[fruitToIndex];
   Session.set('fruit', fruit);
@@ -28,6 +31,8 @@ function storePasswords () {
   Passwords.insert({
     'timestamp': timestamp,
     'passwords': passwordArray,
+    'twofactor': twofactor,
+    'passwordmanager': passwordmanager,
     'fruit': fruit
   });
 
@@ -111,7 +116,7 @@ function calculateHackingChance () {
       if (value > 69) {
         return "Unfortunately, your digital portfolio is easily hacked.  If specifically targeted by an attacker, your accounts could easily become compromised.";
       } else if (value < 45) {
-        return "Congratulations, you are part of the secure 27% of U.S. web surfers! Your accounts are unlikely to be compromised.";
+        return "Congratulations, you are part of the secure 27% of U.S. Web surfers! Your accounts are unlikely to be compromised.";
       } else {
         return "Your security could use some improvements.  Your accounts are not easily compromised, but determined hackers could potentially infiltrate your digital portfolio.";
       }
