@@ -122,7 +122,7 @@ function calculateHackingChance () {
         return {
           'color': "success",
           'security': "Secure",
-          'response': "You do not use file sharing websites to download media.  Many sites contain file downloads embedded with malware/viruses, and so you are not at risk."
+          'response': "You do not use file sharing websites to download media often.  Many sites contain file downloads embedded with malware/viruses, and so you are not at risk."
         };
       } else {
         return {
