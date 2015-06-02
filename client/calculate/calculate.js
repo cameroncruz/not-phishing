@@ -55,10 +55,10 @@ function calculateHackingChance () {
   var antivirus = document.getElementById('survey-antivirus').value;
   var encryption = document.getElementById('survey-encryption').value;
 
-  var surveyAnswers = [filesharing, friends, antivirus, encryption];
+  var surveyAnswers1 = [filesharing, friends, antivirus, encryption];
 
-  for (i = 0; i < surveyAnswers.length; i++) {
-    if (surveyAnswers[i] === "secure") {
+  for (i = 0; i < surveyAnswers1.length; i++) {
+    if (surveyAnswers1[i] === "secure") {
       scoreQuotient = scoreQuotient+1;
     }
   }
@@ -66,12 +66,12 @@ function calculateHackingChance () {
   var percentChance = 100-scoreQuotient;
 
   //Throttling the result to adjust for the large numbers issue
-  var throttle = 0.73*numberOfPasswords;
+  var throttle = 1.9*numberOfPasswords;
   for (i = 0; i < numberOfPasswords; i++) {
     throttle = throttle*passwordCache[i].length;
   }
-  if (throttle > 84) {
-    throttle = 84;
+  if (throttle > 94) {
+    throttle = 94;
   }
   throttledPercentChance = percentChance - throttle;
   if (throttledPercentChance < 1) {
@@ -94,9 +94,32 @@ function calculateHackingChance () {
   }
   averagePasswordLength = Math.round(averagePasswordLength/numberOfPasswords);
 
+  console.log(throttledPercentChance);
+  function level (value) {
+    if (value > 69) {
+      return "alert";
+    } else if (value < 45) {
+      return "success";
+    } else {
+      return "warning";
+    }
+  }
+
+  function conclusion (value) {
+      if (value > 69) {
+        return "Unfortunately, your digital portfolio is easily hacked.  If specifically targeted by an attacker, your accounts could easily become compromised.";
+      } else if (value < 45) {
+        return "Congratulations, you are part of the secure 27% of U.S. web surfers! Your accounts are unlikely to be compromised.";
+      } else {
+        return "Your security could use some improvements.  Your accounts are not easily compromised, but determined hackers could potentially infiltrate your digital portfolio.";
+      }
+    }
+
   var stats = {
     'numberOfPasswords': numberOfPasswords,
-    'averagePasswordLength': averagePasswordLength
+    'averagePasswordLength': averagePasswordLength,
+    'level': level(throttledPercentChance),
+    'conclusion': conclusion(throttledPercentChance)
   };
 
   Session.set('stats', stats);

@@ -1,22 +1,13 @@
 <head>
   <link rel="icon" href="favicon/favicon.ico"/>
 
-  <title>What Are My Chances of Getting Hacked?</title>
+  <title>How Secure Is My Digital Portfolio?</title>
 </head>
 
 <template name="layout">
   {{> yield}}
   {{> footer}}
   {{initFoundation}}
-
-  <div id="fb-root"></div>
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.3&appId=1584572038423150";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
 
 </template>
 
@@ -29,7 +20,7 @@
   <div class="row">
     <div class="small-4 small-offset-3 columns"><img src="images/proofpointlogo.png" style="width: 300px;"></div>
     <div class="small-2 end columns"> 
-      {{> facebookLike}}
+      <p><a href="https://www.facebook.com/proofpoint?fref=ts"><img src="images/likebutton.png" style="width: 40px;"></a><span style="color: #000000; background-color: #F5F5F5; font-size: 9px;">11k</span></p>
     </div>
   </div>
   <br>
@@ -52,6 +43,7 @@
   {{> surveyB}}
   <br>
   {{> calculateButton}}
+  <br>
 </template>
 
 
@@ -63,6 +55,11 @@
   <br>
   <div class="row"><div class="small-12 columns text-center">
   	<h2>Calculating...</h2>
+      <div class="row">
+        <div class="small-6 small-centered columns">
+          {{>progress progress=1 class="blue bg-black"}}
+        </div>
+      </div>
   	</div></div>
   <div class="row">
   	<div class="small-12">
@@ -82,27 +79,49 @@
   <div class="row">
     <div class="small-12 columns">
       <div class="row">
-        <div class="small-4 small-centered columns alert-box {{resultColor}} text-center">
+        <div class="small-4 columns">
+          <a href="http://home.mcafee.com/"><img src="images/mcafee.png" alt="" class="left ad"></a>
+        </div>
+        <div id="result-box" class="small-4 columns alert-box {{resultColor}} text-center">
           <h2>You have a</h2>
           <h1 id="percent-chance"><big>{{percentChance}}%</big></h1>
           <h2>chance of being hacked.</h2>
+        </div>
+        <div class="small-4 columns">
+          <a href="http://www.squarespace.com/"><img src="images/squarespace-ad.jpeg" alt="" class="right ad"></a>
         </div>
       </div>
     </div>
   </div>
   <br>
   <div class="row">
-    <div id="button-return" class="small-12 columns"><a href="/" class="button success expand round">Return to What Are My Chances of Getting Hacked</a></div>
+    <div id="button-return" class="small-12 columns"><a href="/" class="button success expand round">Return to proofpoint™ Security Calculator</a></div>
   </div>
   <br>
   <div class="row panel">
     <div class="small-12 columns">
+      <br>
       <div class="row">
         <div class="small-12 columns text-center">
           <h1>Conclusion</h1>
         </div>
       </div>
+      <br>
       {{#with stats}}
+        <div class="row">
+          <div class="small-8 small-centered text-center columns">
+            <h4>{{conclusion}}</h4>
+            <br>
+            <p>If your chance of being hacked is less than 50%, you are secure.  It would take attackers excessive computing power to breach your digital portfolio.  People with a chance that is over 50% are more likely to be identified and targeted by cyber-criminals.</p>
+          </div>
+        </div>
+        <br>
+        <div class="row">
+          <div class="small-8 small-centered columns">
+            <hr>
+          </div>
+        </div>
+        <br>
         <div class="row">
           <div class="small-4 small-offset-2 columns">
             <p><big>{{numberOfPasswords}}</big> total passwords</p>
@@ -110,17 +129,13 @@
           <div class="small-6 columns">
             <p>Average password length of {{averagePasswordLength}} characters<big style="opacity: 0;">0</big></p>
           </div>
+          <div class="small-10 small-centered text-center columns"><p>Only the password length and type of characters used was recorded for the calculation. Your actual passwords are never transferred over the Internet.</p></div>
         </div>
       {{/with}}
       <h4>To maximize your security,</h4>
       <p>use a password managing application such as LastPass</p>
     </div>
   </div>
-</template>
-
-<template name="facebookLike">
-  <style type="text/css">#fake-like-rapper{display: inline-block;margin:0;padding:0;}#fake-like-rapper div{float:left;margin:0;padding:0;}#like-fake div.connect_widget_button_count_including, td.connect_widget_simple_including{margin:0;padding:0;}#like-fake td, td.label{font-size: 11px;text-align: left;margin:0;padding:0;}#like-fake{font-size: 11px;font-family:"lucida grande",tahoma,verdana,arial,sans-serif;color:#333;line-height:1.28;text-align: left;direction: ltr;margin-top: 1px !important; margin-left: -2px!important;position: relative;float:left;}#like-fake .uiGrid{border: 0;border-collapse: collapse;border-spacing: 0;}#like-fake .connect_widget_button_count_count{background: white;border: 1px solid #D1D1D1;float: left;font-weight: normal;height: 14px;margin-left: 1px;min-width: 17px;padding: 1px 2px 1px 2px;text-align: center;line-height: 14px;white-space: nowrap;}#like-fake .connect_widget_button_count_nub s, #like-fake .connect_widget_button_count_nub i{border: solid transparent;border-right-color: #D7D7D7;top: 1px;display: block;position: relative;border-width: 4px 5px 4px 0;}#like-fake .connect_widget_button_count_nub i{left: 2px;top: -7px;border-right-color: white;}#like-fake .connect_widget_button_count_nub {float: left; position: relative; height: 0; width: 5px; top: -5px; left: 2px; }</style><div id="fake-like-rapper"><div class="fb-like" data-href="https://howsecureismypassword.net/" data-send="false" data-layout="button_count" data-width="48" data-show-faces="false" data-font="arial" style="width: 48px; height: 20px; overflow: hidden;"></div><div id="like-fake"><div class="connect_widget_button_count_including"><table class="uiGrid" cellspacing="0" cellpadding="0"><tbody><tr><td><div class="thumbs_up hidden_elem"></div></td><td><div class="undo hidden_elem"></div></td></tr><tr><td><div class="connect_widget_button_count_nub"><s></s><i></i></div></td><td><div class="connect_widget_button_count_count">11k</div></td></tr></tbody></table></div></div></div>
-
 </template>
 
 
@@ -151,7 +166,7 @@
           <div class="small-4 columns">
             <div class="row">
               <div class="small-6 columns">
-                <a href="https://lastpass.com"><img src="https://lh6.ggpht.com/baD4XkhDV6F6qzrCQhY-UES1IDlEUaqTwhfL7xC7PQQJb3XeYhMbvKRDgpn6fyo5vA=w300" style="width: 126px;"></a>
+                <a href="https://lastpass.com"><img src="images/lastpass.png" style="width: 126px;"></a>
               </div>
               <div class="small-6 columns">
                 <p><a href="https://lastpass.com" style="color: #D42F28;">LastPass</a> remembers your passwords so that you can focus on the more important things in life.</p>

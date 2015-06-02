@@ -7,13 +7,7 @@ Template.results.helpers({
     return Session.get('percentChanceString');
   },
   'resultColor': function () {
-    if (Session.get('percentChanceNumber') > 69) {
-      return "alert";
-    } else if (Session.get('percentChanceNumber') < 45) {
-      return "success";
-    } else {
-      return "warning";
-    }
+    return Session.get('stats').level;
   },
   'stats': function () {
     return Session.get('stats');
