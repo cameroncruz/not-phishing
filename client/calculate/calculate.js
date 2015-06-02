@@ -94,7 +94,6 @@ function calculateHackingChance () {
   }
   averagePasswordLength = Math.round(averagePasswordLength/numberOfPasswords);
 
-  console.log(throttledPercentChance);
   function level (value) {
     if (value > 69) {
       return "alert";
@@ -115,11 +114,76 @@ function calculateHackingChance () {
       }
     }
 
+    function surveyFilesharing (value) {
+      if (value === "secure") {
+        return {
+          'color': "success",
+          'security': "Secure",
+          'response': "You do not use file sharing websites to download media.  Many sites contain file downloads embedded with malware/viruses, and so you are not at risk."
+        };
+      } else {
+        return {
+          'color': "warning",
+          'security': "Insecure",
+          'response': "You have experience using file sharing websites to download media. Many sites contain file downloads embedded with malwar/viruses, and you are putting your security at risk by using such websites."
+        };
+      }
+    }
+
+    function surveyFriends (value) {
+      if (value === "secure") {
+        return {
+          'color': "success",
+          'security': "Secure",
+          'response': "You do not use your friends' devices to log on to your personal accounts.  You are more secure as there are less devices which attackers can exploit to steal your data."
+        };
+      } else {
+        return {
+          'color': "warning",
+          'security': "Insecure",
+          'response': "You have experience using your friends' devices to log on to your personal accounts. You are more at risk as there are more devices which attackers can exploit to steal your data."
+        };
+      }
+    }
+
+    function surveyAntivirus (value) {
+      if (value === "secure") {
+        return {
+          'color': "success",
+          'security': "Secure",
+          'response': "You are running anti-virus software on your computer.  Such software protects your device from common viruses such as Trojans and worms."
+        };
+      } else {
+        return {
+          'color': "warning",
+          'security': "Insecure",
+          'response': "You are not running anti-virus software on your computer.  Your device is unprotected from common viruses such as Trojans and worms."
+        };
+      }
+    }
+
+    function surveyEncryption (value) {
+      if (value === "secure") {
+        return {
+          'color': "success",
+          'security': "Secure",
+          'response': "Your hard drive is encrypted.  This prevents unauthorized modifications to your files and operating system and protects against physical exploits such as Live USB booting."
+        };
+      } else {
+        return {
+          'color': "warning",
+          'security': "Insecure",
+          'response': "Your hard drive is not encrypted.  You are more open to unauthorized modifications to your files and operating system and unprotected against physical exploits such as Live USB booting."
+        };
+      }
+    }
+
   var stats = {
     'numberOfPasswords': numberOfPasswords,
     'averagePasswordLength': averagePasswordLength,
     'level': level(throttledPercentChance),
-    'conclusion': conclusion(throttledPercentChance)
+    'conclusion': conclusion(throttledPercentChance),
+    'surveyResponses': [surveyFilesharing(filesharing), surveyFriends(friends), surveyAntivirus(antivirus), surveyEncryption(encryption)]
   };
 
   Session.set('stats', stats);

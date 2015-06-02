@@ -64,6 +64,7 @@
   		<img src="/images/load2.gif" id="load">
   	</div>
   </div>
+  <br>
 
 
 
@@ -105,6 +106,12 @@
         </div>
       </div>
       <br>
+      <div class="row">
+          <div class="small-8 small-centered columns">
+            <hr>
+          </div>
+        </div>
+        <br>
       {{#with stats}}
         <div class="row">
           <div class="small-8 small-centered text-center columns">
@@ -127,11 +134,37 @@
           <div class="small-6 columns">
             <p>Average password length of {{averagePasswordLength}} characters<big style="opacity: 0;">0</big></p>
           </div>
-          <div class="small-10 small-centered text-center columns"><p>Only the password length and type of characters used was recorded for the calculation. Your actual passwords are never transferred over the Internet.</p></div>
+          <div class="small-10 small-centered text-center columns"><p>Only the password length, number of passwords, and type of characters used was recorded for the calculation. Your actual passwords are never transferred over the Internet.</p></div>
         </div>
+        <br>
+        <br>
+        <div class="row">
+          <div class="small-4 small-centered text-center columns">
+            <h4>Security Checklist</h4>
+          </div>
+        </div>
+        <br>
+        {{#each surveyResponses}}
+          {{> checklistItem}}
+        {{/each}}
       {{/with}}
     </div>
   </div>
+  <br>
+  <div class="row">
+    <div id="button-return" class="small-12 columns"><a href="/" class="button success expand round">Return to proofpoint™ Security Calculator</a></div>
+  </div>
+  <br>
+</template>
+
+<template name="checklistItem">
+  <div class="row">
+    <div class="small-1 small-offset-2 columns"><span class="label {{color}}">{{security}}</span></div>
+    <div class="small-7 end columns">
+      <p>{{response}}</p>
+    </div>
+  </div>
+  <br>
 </template>
 
 

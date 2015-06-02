@@ -11,6 +11,9 @@ Template.results.helpers({
   },
   'stats': function () {
     return Session.get('stats');
+  },
+  'surveyResponses': function () {
+    return Session.get('stats').surveyResponses;
   }
 });
 
