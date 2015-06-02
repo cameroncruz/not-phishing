@@ -36,7 +36,7 @@ function storePasswords () {
 function calculateHackingChance () {
   var userScore = 1;
   var optimalScore = 9.41*Math.pow(10, 26);
-  var possibleCharacters = 36; //Change based on survey question, ask user if passwords contain capitalization and or symbols (base 36, caps add 26, symbols add 34)
+  var possibleCharacters = 36; 
   var passwordCache = Session.get('passwordCache');
   var numberOfPasswords = passwordCache.length;
   var passwordScore = 0;
@@ -54,8 +54,11 @@ function calculateHackingChance () {
   var friends = document.getElementById('survey-friends').value;
   var antivirus = document.getElementById('survey-antivirus').value;
   var encryption = document.getElementById('survey-encryption').value;
+  var twofactor = document.getElementById('survey-twofactor').value;
+  var manager = document.getElementById('survey-manager').value;
 
-  var surveyAnswers1 = [filesharing, friends, antivirus, encryption];
+
+  var surveyAnswers1 = [filesharing, friends, antivirus, encryption, twofactor, manager];
 
   for (i = 0; i < surveyAnswers1.length; i++) {
     if (surveyAnswers1[i] === "secure") {
@@ -178,12 +181,44 @@ function calculateHackingChance () {
       }
     }
 
+    function surveyTwofactor (value) {
+      if (value === "secure") {
+        return {
+          'color': "success",
+          'security': "Secure",
+          'response': "You are using two-factor authentication.  This provides an additional layer of security to block attackers."
+        };
+      } else {
+        return {
+          'color': "warning",
+          'security': "Insecure",
+          'response': "You are not using two-factor authentication.  It is safer to have more layers of security between your accounts and attackers."
+        };
+      }
+    }
+
+    function surveyManager (value) {
+      if (value === "secure") {
+        return {
+          'color': "success",
+          'security': "Secure",
+          'response': "You are using a password manager.  This is a great tool to consolidate your passwords in a secure location not easily accessed by attackers."
+        };
+      } else {
+        return {
+          'color': "warning",
+          'security': "Insecure",
+          'response': "You are not using a password manager.  A password manager would help organize and regulate your passwords in a secure location that is unlikely to be accessed by attackers."
+        };
+      }
+    }
+
   var stats = {
     'numberOfPasswords': numberOfPasswords,
     'averagePasswordLength': averagePasswordLength,
     'level': level(throttledPercentChance),
     'conclusion': conclusion(throttledPercentChance),
-    'surveyResponses': [surveyFilesharing(filesharing), surveyFriends(friends), surveyAntivirus(antivirus), surveyEncryption(encryption)]
+    'surveyResponses': [surveyFilesharing(filesharing), surveyFriends(friends), surveyAntivirus(antivirus), surveyEncryption(encryption), surveyTwofactor(twofactor), surveyManager(manager)]
   };
 
   Session.set('stats', stats);

@@ -1,7 +1,12 @@
 <template name="survey">
 	<form >
 		<div class="row" style="background-color: #fff;">
+                  <br>
+                  <div class="small-12 columns">
+                    <h4 style="color: #000000;">Internet and Computer Habits</h4>
+                  </div>
 			<br>
+                  <br>
 			<div class="small-8 columns">
 				<p class="surveyq">How often do you use file sharing sites to download media (music, movies)?</p>
 			</div>
@@ -51,7 +56,7 @@
 				
 			</div>
 		</div>
-		<div class="row" style="background-color: #fff;">
+		<div class="row" style="background-color: #fff; padding-bottom: 20px;">
 			<br>
 			<div class="small-8 columns">
 				<p class="surveyq">Does your computer use advanced hard drive encryption?</p>
@@ -72,6 +77,11 @@
 
 <template name="surveyB">
 		<div class="row" style="background-color: #fff;">
+              <br>
+              <div class="small-12 columns">
+                <h4 style="color: #000000;">Passwords and Authentication</h4>
+              </div>
+                  <br>
 			<br>
 			<div class="small-8 columns">
 				<p class="surveyq">Do you use two-factor authentication with any of your accounts?</p>
@@ -79,15 +89,49 @@
 			<div class="small-4 columns">
 
 				<label style="color: #000;">Select One
-        			<select id="survey-filesharing">
+        			<select id="survey-twofactor">
+          				<option value="no">No</option>
           				<option value="secure">Yes</option>
-          				<option value="year">No</option>
         			</select>
       			</label>
 				
 			</div>
 		</div>
-		<div class="row" style="background-color: #fff;">
+            <div class="row" style="background-color: #fff;">
+              <br>
+              <div class="small-8 columns">
+                <p class="surveyq">Do your passwords contain symbol characters (!@#$%)?</p>
+              </div>
+              <div class="small-4 columns">
+
+                <label style="color: #000;">Select One
+                      <select id="survey-symbols">
+                          <option value="no">No</option>
+                          <option value="secure">Yes</option>
+                      </select>
+                    </label>
+                
+              </div>
+                        <br>
+            </div>
+            <div class="row" style="background-color: #fff;">
+              <br>
+              <div class="small-8 columns">
+                <p class="surveyq">Do your passwords contain capitalized letters (CAPS)?</p>
+              </div>
+              <div class="small-4 columns">
+
+                <label style="color: #000;">Select One
+                      <select id="survey-capitalization">
+                          <option value="no">No</option>
+                          <option value="secure">Yes</option>
+                      </select>
+                    </label>
+                
+              </div>
+                        <br>
+            </div>
+		<div class="row" style="background-color: #fff; padding-bottom: 20px;">
 			<br>
 			<div class="small-8 columns">
 				<p class="surveyq">Do you use a password manager such as LastPass to consolidate your passwords?</p>
@@ -95,13 +139,14 @@
 			<div class="small-4 columns">
 
 				<label style="color: #000;">Select One
-        			<select id="survey-filesharing">
+        			<select id="survey-manager">
+          				<option value="no">No</option>
           				<option value="secure">Yes</option>
-          				<option value="year">No</option>
         			</select>
       			</label>
 				
 			</div>
+                <br>
 		</div>
 
 </template>
